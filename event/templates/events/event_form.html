@@ -1,0 +1,14 @@
+{% extends 'events/base.html' %}
+
+{% block title %}{{ form.instance.pk|yesno:"Update Event,Create Event" }}{% endblock %}
+
+{% block content %}
+        <h1>{{ form.instance.pk|yesno:"Update Event,Create Event" }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+        <a href="{% url 'event_list' %}">Back to List</a>
+{% endblock %}
+
